@@ -16,35 +16,18 @@ class SLL(object):
         trav = self.head
         while trav is not None:
             if trav.data == targeted_data:
-                if trav.next is not None:
+                if trav.previous is not None:
                     trav.previous.next = trav.next
-                    trav.next.previous = trav.previous
-                    del trav
-                    return print('Deleted', targeted_data)
+                    if trav.next is not None:
+                        trav.next.previous = trav.previous
+                else:
+                    self.head = trav.next  # reassign the head
+                    self.head.previous = None  # head has no previous
+                del trav
+                return print('Deleted', targeted_data)
+
             else:
                 trav = trav.next
-
-        # if trav.next is not None:
-        #     trav = trav.next
-        # else:
-        #     if trav.data == targeted_data:
-        #         self.head = trav.next
-        #         return print('Deleted', targeted_data)
-        #     else:
-        #         return print(targeted_data, 'not in list to be deleted')
-        # while trav2.next is not None:
-        #     if trav2.data == targeted_data:
-        #         trav.next = trav2.next
-        #         return print('Deleted', targeted_data)
-        #     else:
-        #         trav = trav.next
-        #         trav2 = trav2.next
-        # else:
-        #     if trav2.data == targeted_data:
-        #         trav.next = trav2.next
-        #         return print('Deleted', targeted_data)
-        #     else:
-        #         return print(targeted_data, 'not in list to be deleted')
 
     def insert(self, node_data):
         trav = self.head
@@ -56,13 +39,12 @@ class SLL(object):
     def search(self, node_data):
         trav = self.head
         p = 0
-        while trav.data != node_data and trav is not None:
+        while trav is not None:
             p = p + 1
+            if trav.data == node_data:
+                return print(node_data, 'is in position', p)
             trav = trav.next
-        if trav.data == node_data:
-            print(node_data, 'is in position', p)
-        else:
-            print(node_data, 'was not found')
+        return print(node_data, 'was not found')
 
     def show(self):
         trav = self.head
@@ -90,27 +72,6 @@ class SLL(object):
                     trav = trav.next
             if trav is None:  # we've completed the previous loop with no swaps
                 swap_needed = False
-
-            # if trav1.next is not None:
-            #     trav2 = trav1.next
-            # else:
-            #     return print('Because linked list has exactly one node list cannot'
-            #                  ' be sorted')
-            # while trav2.next is not None or str(trav1.data) + direction + str(trav2.data):
-            #     if eval(str(trav1.data) + direction + str(trav2.data)):  # either a >, or a < comparison is made
-            #         # if trav1.data > trav2.data:
-            #         temp = trav1.data
-            #         trav1.data = trav2.data
-            #         trav2.data = temp
-            #         swap_needed = True
-            #         break
-            #     else:
-            #         swap_needed = False
-            #         trav1 = trav1.next
-            #         if trav2.next is not None:
-            #             trav2 = trav2.next
-            #         else:
-            #             break
 
 
 llist = SLL()
