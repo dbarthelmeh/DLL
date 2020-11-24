@@ -66,6 +66,8 @@ class SLL(object):
             symbol = '<'
         elif order == 'ascending':
             symbol = '>'
+        else:
+            return print('Input either "ascending" or "descending"')
         swap_needed = True
         while swap_needed:
             trav = self.head.next
@@ -78,8 +80,7 @@ class SLL(object):
                 else:
                     trav = trav.next
             if trav is None:  # we've completed the previous loop with no swaps
-                swap_needed = False
-            return print('Sorted', order)
+                return print('Sorted', order)
 
 
 llist = SLL()
@@ -99,6 +100,7 @@ llist.show()
 llist.search(10)
 llist.insert(7)
 llist.insert(2)
+llist.sort('stay chaotic')
 llist.sort('descending')
 llist.show()
 llist.sort('ascending')
