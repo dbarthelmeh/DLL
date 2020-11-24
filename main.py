@@ -1,4 +1,5 @@
 class Node(object):
+    """Contains info"""
     def __init__(self, data=None):
         self.data = data
         self.next = None
