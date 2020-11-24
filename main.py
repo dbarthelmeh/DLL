@@ -48,6 +48,8 @@ class SLL(object):
 
     def show(self):
         trav = self.head
+        if trav is None:
+            return print('This list is so empty.')
         while trav.next is not None:
             print(trav.data, '- ', end='')  # no new lines are printed
             trav = trav.next
@@ -85,7 +87,7 @@ llist.show()
 llist.search(10)
 llist.insert(7)
 llist.insert(2)
-llist.sort()
+llist.sort('descending')
 llist.show()
 llist.sort('ascending')
 llist.show()
