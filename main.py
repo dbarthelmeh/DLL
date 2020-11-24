@@ -68,8 +68,7 @@ class SLL(object):
             symbol = '>'
         else:
             return print('Input either "ascending" or "descending"')
-        swap_needed = True
-        while swap_needed:
+        while True:
             trav = self.head.next
             while trav is not None:
                 if eval(str(trav.previous.data) + symbol + str(trav.data)):
