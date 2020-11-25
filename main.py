@@ -6,8 +6,8 @@ class Node(object):
         self.previous = None  # points to the previous node
 
 
-class SLL(object):
-    """Singly linked list (SLL) data structure with insert, delete, search and show functions."""
+class DLL(object):
+    """Doubly linked list (DLL) data structure with insert, delete, search and show functions."""
     def __init__(self):
         self.head = None  # the head will be a node object
 
@@ -82,7 +82,7 @@ class SLL(object):
                 return print('Sorted', order)
 
 
-llist = SLL()
+llist = DLL()
 llist.head = Node(8)
 llist.insert(3)
 llist.insert(7)
